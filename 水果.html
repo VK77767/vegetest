@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新鮮水果商品介紹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+      background: linear-gradient(to right, #f3e5f5, #ffebee); /* 淡紫色到淡粉色的漸層背景 */
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #e57373; /* 柔和的紅色，讓標題不那麼鮮豔 */
+      margin: 20px 0 20px 20px; /* 增加左邊距離，使標題靠左 */
+      text-shadow: 1px 1px 2px #f48fb1; /* 淡粉色陰影 */
+    }
+
+    .layout {
+      display: flex;
+      flex-wrap: wrap; /* 允許元素換行 */
+      padding: 0 20px 40px;
+      gap: 20px;
+    }
+
+    .sidebar {
+      width: 100%;
+      background-color: #ffffffc2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .sidebar h2 {
+      font-size: 1.2em;
+      color: #e57373; /* 柔和的紅色 */
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #66bb6a; /* 淡綠色，代表健康 */
+      font-weight: 500;
+      display: block;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #ffe0b2; /* 淡橙色的懸停效果 */
+    }
+
+    .product-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: linear-gradient(to right, #ffab91, #ff8a65); /* 淡橙色到柔和紅色的漸層 */
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 24px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: linear-gradient(to right, #ff8a65, #f44336); /* 更柔和的懸停效果 */
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background-color: #ffccbc; /* 淡橙色背景，柔和且與水果顏色呼應 */
+    }
+
+    .card h3 {
+      margin: 16px 0 8px;
+      color: #e57373; /* 柔和的紅色字體 */
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+      padding: 0 10px 16px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+        align-items: center; /* 垂直排列並居中 */
+        padding: 10px;
+      }
+
+      .sidebar {
+        width: 100%;
+        margin-bottom: 20px; /* 增加間距 */
+      }
+
+      .container {
+        grid-template-columns: 1fr 1fr; /* 在中等大小設備上顯示為兩列 */
+        gap: 20px;
+      }
+
+      .card img {
+        height: 150px; /* 調整圖片高度 */
+      }
+
+      .card h3 {
+        font-size: 1.1em; /* 縮小標題字體 */
+      }
+
+      .card p {
+        font-size: 13px; /* 縮小描述文字 */
+      }
+
+      .back-button a {
+        font-size: 0.9em;
+        padding: 8px 20px; /* 調整按鈕大小 */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: 1fr; /* 在手機上顯示為單列 */
+      }
+
+      .card img {
+        height: 120px; /* 調整圖片高度 */
+      }
+
+      .card h3 {
+        font-size: 1em; /* 進一步縮小標題字體 */
+      }
+
+      .card p {
+        font-size: 12px; /* 進一步縮小描述文字 */
+      }
+
+      .back-button a {
+        font-size: 0.85em;
+        padding: 6px 18px; /* 縮小按鈕大小 */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>新鮮水果商品介紹</h1>
+
+  <div class="layout">
+    <!-- 左側分類選單 -->
+    <div class="sidebar">
+      <h2>商品分類</h2>
+      <ul>
+        <li><a href="蔬菜.html">蔬菜類</a></li>
+        <li><a href="水果.html">水果類</a></li>
+        <li><a href="冷藏食品.html">冷藏食品</a></li>
+        <li><a href="常溫食品.html">常溫食品</a></li>
+        <li><a href="醬料、調味料.html">醬料、調味料</a></li>
+        <li><a href="泡麵與其他麵類.html">泡麵與其他麵類</a></li>
+      </ul>
+    </div>
+
+    <!-- 商品區 -->
+    <div class="product-area">
+      <!-- 回主頁按鈕 -->
+      <div class="back-button">
+        <a href="main蔬菜.html"><span>← 回主頁</span></a>
+      </div>
+
+      <!-- 商品卡片區 -->
+      <div class="container">
+        <!-- 所有卡片放這裡 -->
+        <!-- 示例： -->
+        <div class="card"><img src="2-1.jpg" alt="火龍果"><h3>火龍果</h3><p>外皮鮮豔，果肉甜美，富含維生素C與抗氧化物。</p></div>
+        <div class="card"><img src="2-2.jpg" alt="奇異果"><h3>奇異果</h3><p>含有豐富維生素C和膳食纖維，具有抗氧化作用。</p></div>
+        <div class="card"><img src="2-3.jpg" alt="柳丁"><h3>柳丁</h3><p>富含維生素C，清新酸甜，有助增強免疫力。</p></div>
+        <div class="card"><img src="2-4.jpg" alt="香瓜"><h3>香瓜</h3><p>口感細膩、清甜，含有豐富的水分與維生素。</p></div>
+        <div class="card"><img src="2-5.jpg" alt="蘋果"><h3>蘋果</h3><p>富含纖維與維生素C，有助消化並提高免疫力。</p></div>
+        <div class="card"><img src="2-6.jpg" alt="香蕉"><h3>香蕉</h3><p>高鉀且含有天然糖分，是快速補充能量的好選擇。</p></div>
+        <div class="card"><img src="2-7.jpg" alt="木瓜"><h3>木瓜</h3><p>富含酵素與維生素C，促進消化並有助皮膚健康。</p></div>
+        <div class="card"><img src="2-8.jpg" alt="哈密瓜"><h3>哈密瓜</h3><p>甜美多汁，富含水分與維生素A，適合夏季享用。</p></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

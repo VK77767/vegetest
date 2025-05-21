@@ -1,0 +1,239 @@
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+    background: linear-gradient(to right, #e0d6b8, #d1c18f); /* 淺卡其色到淡橄欖綠漸層背景 */
+    color: #4e3629; /* 淡咖啡色文字 */
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #6a4e23; /* 濃郁的黃綠色調 */
+    margin: 20px 0 20px 0;
+    text-shadow: 1px 1px 2px #b3a97b; /* 淺綠色陰影效果 */
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 40px;
+    gap: 20px;
+  }
+
+  .sidebar {
+    width: 100%;
+    background-color: #f5f0e1; /* 淺米白色背景 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+  }
+
+  .sidebar h2 {
+    font-size: 1.2em;
+    color: #6a4e23; /* 濃郁的黃綠色調 */
+    margin-bottom: 15px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar li {
+    margin: 10px 0;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #4e3629; /* 淡咖啡色文字 */
+    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+
+  .sidebar a:hover {
+    background-color: #d1c18f; /* 淡橄欖綠的懸停效果 */
+  }
+
+  .product-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-button {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .back-button a {
+    display: inline-block;
+    background: linear-gradient(to right, #a2c398, #6e8b3d); /* 淡橄欖綠到柔和綠的漸層 */
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 24px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .back-button a:hover {
+    background: linear-gradient(to right, #6e8b3d, #4e3629); /* 綠色到深咖啡色的懸停效果 */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #f5f0e1; /* 淺米白色背景 */
+  }
+
+  .card h3 {
+    margin: 16px 0 8px;
+    color: #6a4e23; /* 濃郁的黃綠色調 */
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #4e3629; /* 淡咖啡色文字 */
+    padding: 0 10px 16px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    /* 優化側邊欄在小螢幕上的顯示 */
+    .sidebar {
+      width: 100%;
+      padding: 15px;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin: 20px 0;
+    }
+
+    .layout {
+      flex-direction: column;
+    }
+
+    .container {
+      grid-template-columns: 1fr; /* 單列顯示卡片 */
+      gap: 16px;
+    }
+  }
+</style>
+  </style>
+</head>
+<body>
+
+  <h1>常溫商品介紹</h1>
+
+  <div class="layout">
+    <!-- 左側分類選單 -->
+    <div class="sidebar">
+      <h2>商品分類</h2>
+      <ul>
+        <li><a href="蔬菜.html">蔬菜類</a></li>
+        <li><a href="水果.html">水果類</a></li>
+        <li><a href="冷藏食品.html">冷藏食品</a></li>
+        <li><a href="常溫食品.html">常溫食品</a></li>
+        <li><a href="醬料、調味料.html">醬料、調味料</a></li>
+        <li><a href="泡麵與其他麵類.html">泡麵與其他麵類</a></li>
+      </ul>
+    </div>
+
+    <!-- 商品區 -->
+    <div class="product-area">
+      <!-- 回主頁按鈕 -->
+      <div class="back-button">
+        <a href="main蔬菜.html"><span>← 回主頁</span></a>
+      </div>
+
+      <!-- 商品卡片區 -->
+      <div class="container">
+        <!-- 所有卡片放這裡 -->
+        <!-- 示例： -->
+
+    <!-- 商品區 -->
+  <div class="card">
+  <img src="6-1.jpg" alt="鮮蝦風味泡麵">
+  <h3>鮮蝦風味泡麵</h3>
+  <p>鮮蝦風味泡麵，採用天然海鮮香氣，融合鮮蝦味道，帶來美味的海味體驗。</p>
+</div>
+<div class="card">
+  <img src="6-2.jpg" alt="牛肉風味泡麵">
+  <h3>牛肉風味泡麵</h3>
+  <p>牛肉風味泡麵，精選牛肉香料，鮮嫩牛肉與豐富湯底，讓你品味地道牛肉風味。</p>
+</div>
+<div class="card">
+  <img src="6-3.jpg" alt="燉牛肉風味泡麵">
+  <h3>燉牛肉風味泡麵</h3>
+  <p>燉牛肉風味泡麵，搭配精心燉煮的牛肉，湯底濃郁，帶來豐富的口感層次。</p>
+</div>
+<div class="card">
+  <img src="6-4.jpg" alt="酸辣蝦味泡麵">
+  <h3>酸辣蝦味泡麵</h3>
+  <p>酸辣蝦味泡麵，辣中帶酸，特製湯底搭配鮮蝦味，辣味十足，讓人胃口大開。</p>
+</div>
+<div class="card">
+  <img src="6-5.jpg" alt="辣味拌炒泡麵">
+  <h3>辣味拌炒泡麵</h3>
+  <p>辣味拌炒泡麵，獨特香辣醬料，搭配炒麵風味，挑戰你對辣味的極限。</p>
+</div>
+<div class="card">
+  <img src="6-6.jpg" alt="青檸牛肉湯泡麵">
+  <h3>青檸牛肉湯泡麵</h3>
+  <p>青檸牛肉湯泡麵，清新青檸的酸味與牛肉湯底融合，帶來清爽又濃郁的口感。</p>
+</div>
+<div class="card">
+  <img src="6-7.jpg" alt="拌麵">
+  <h3>拌麵</h3>
+  <p>拌麵，選用彈牙麵條，搭配特製醬料，混合成爽口美味的經典拌麵。</p>
+</div>
+<div class="card">
+  <img src="6-8.jpg" alt="炊粉">
+  <h3>炊粉</h3>
+  <p>炊粉，採用優質米粉，軟嫩可口，適合搭配各式菜餚或湯品。</p>
+</div>
+
+   
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

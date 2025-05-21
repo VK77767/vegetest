@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>常溫商品介紹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+      background: linear-gradient(to right, #fff8e1, #ffecb3); /* 米白色到淡黃色的漸層背景 */
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #f57c00; /* 橙色，柔和且溫暖 */
+      margin: 20px 0 20px 270px; /* 將左邊距離調整為 270px，讓標題往右移動 */
+      text-shadow: 1px 1px 2px #ffcc80; /* 淡橙色陰影 */
+    }
+
+    .layout {
+      display: flex;
+      padding: 0 20px 40px;
+      gap: 30px;
+    }
+
+    .sidebar {
+      width: 200px;
+      min-width: 160px;
+      background-color: #ffffffc2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      height: fit-content;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2em;
+      color: #f57c00; /* 橙色 */
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #8d6e63; /* 深米色 */
+      font-weight: 500;
+      display: block;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #fff3e0; /* 淡黃色的懸停效果 */
+    }
+
+    .product-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: linear-gradient(to right, #ffe082, #ffca28); /* 淡黃到明亮黃的漸層 */
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 24px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: linear-gradient(to right, #ffca28, #f57c00); /* 黃色到橙色的懸停效果 */
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background-color: #fff8e1; /* 淡米白色背景 */
+    }
+
+    .card h3 {
+      margin: 16px 0 8px;
+      color: #f57c00; /* 橙色字體 */
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #8d6e63; /* 深米色文字 */
+      padding: 0 10px 16px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* 手機端樣式調整 */
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column; /* 切換為垂直排列 */
+        align-items: center;
+      }
+
+      .sidebar {
+        width: 100%; /* 讓左側選單在小螢幕下寬度為100% */
+        margin-bottom: 20px; /* 增加間距 */
+      }
+
+      .product-area {
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      .container {
+        grid-template-columns: 1fr 1fr; /* 手機上兩列佈局 */
+        gap: 16px;
+      }
+
+      .card img {
+        height: 150px; /* 改小圖片高度 */
+      }
+
+      .card h3 {
+        font-size: 1.1em; /* 調整標題大小 */
+      }
+
+      .card p {
+        font-size: 13px; /* 改小文字大小 */
+      }
+
+      .back-button a {
+        font-size: 0.9em;
+        padding: 8px 20px; /* 減小按鈕大小 */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: 1fr; /* 小螢幕上為單列布局 */
+      }
+
+      .card img {
+        height: 120px; /* 改小圖片高度 */
+      }
+
+      .card h3 {
+        font-size: 1em; /* 調整標題大小 */
+      }
+
+      .card p {
+        font-size: 12px; /* 調整文字大小 */
+      }
+
+      .back-button a {
+        font-size: 0.85em;
+        padding: 6px 18px; /* 減小按鈕大小 */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>常溫商品介紹</h1>
+
+  <div class="layout">
+    <!-- 左側分類選單 -->
+    <div class="sidebar">
+      <h2>商品分類</h2>
+      <ul>
+        <li><a href="蔬菜.html">蔬菜類</a></li>
+        <li><a href="水果.html">水果類</a></li>
+        <li><a href="冷藏食品.html">冷藏食品</a></li>
+        <li><a href="常溫食品.html">常溫食品</a></li>
+        <li><a href="醬料、調味料.html">醬料、調味料</a></li>
+        <li><a href="泡麵與其他麵類.html">泡麵與其他麵類</a></li>
+      </ul>
+    </div>
+
+    <!-- 商品區 -->
+    <div class="product-area">
+      <!-- 回主頁按鈕 -->
+      <div class="back-button">
+        <a href="main蔬菜.html"><span>← 回主頁</span></a>
+      </div>
+
+      <!-- 商品卡片區 -->
+      <div class="container">
+        <!-- 商品卡片 -->
+        <div class="card"><img src="4-1.jpg" alt="紅雞蛋"><h3>紅雞蛋</h3><p>紅色雞蛋外殼，富含蛋白質和維生素B12，對健康有益，口感鮮美。</p></div>
+        <div class="card"><img src="4-2.jpg" alt="白雞蛋"><h3>白雞蛋</h3><p>外殼為白色，含有豐富的蛋白質，對人體發育有益，可做各式料理。</p></div>
+        <div class="card"><img src="4-3.jpg" alt="紅蔥頭"><h3>紅蔥頭</h3><p>富含天然抗氧化成分，具有抗發炎的特性，常用於調味。</p></div>
+        <div class="card"><img src="4-4.jpg" alt="紅辣椒"><h3>紅辣椒</h3><p>辣椒富含維生素C，有助於提升免疫力，並具抗氧化功效。</p></div>
+        <div class="card"><img src="4-5.jpg" alt="蒜頭"><h3>蒜頭</h3><p>大蒜含有強效的抗菌物質，有助於提升免疫系統，並對心臟健康有益。</p></div>
+        <div class="card"><img src="4-6.jpg" alt="薑"><h3>薑</h3><p>薑具有消炎、促進血液循環的功效，常見於料理或藥膳。</p></div>
+        <div class="card"><img src="4-7.jpg" alt="糖果"><h3>糖果</h3><p>糖果是一種甜食，適合用來滿足甜食需求，但應適量食用。</p></div>
+        <div class="card"><img src="4-8.jpg" alt="粽葉"><h3>粽葉</h3><p>粽葉具有獨特的香氣，常用來包粽子或加入料理中，為菜肴增添風味。</p></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
