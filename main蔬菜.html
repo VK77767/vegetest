@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>志光街菜攤</title>
+  <link href="0.jpg" rel="stylesheet">
+  <style>
+    :root {
+      --main-green: #2E7D32;
+      --accent-yellow: #F9A825;
+      --light-bg: #FCFAF5;
+      --card-shadow: rgba(0, 0, 0, 0.08);
+      --text-dark: #444;
+      --hover-green: #388E3C;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      background: linear-gradient(to right, #a5d6a7, #81c784);
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 3px 10px var(--card-shadow);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    nav {
+      background-color: var(--main-green);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px var(--card-shadow);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 600;
+      font-size: 1.05em;
+      padding: 8px 14px;
+      border-radius: 4px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    nav a:hover {
+      background-color: var(--accent-yellow);
+      color: #2E7D32;
+    }
+
+    .banner {
+      background-image: url('0.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.2em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+
+    .content {
+      padding: 60px 20px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .category-title {
+      font-size: 2em;
+      font-weight: bold;
+      color: var(--main-green);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .category-description {
+      font-size: 1.1em;
+      color: #666;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 12px var(--card-shadow);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 16px 0 8px;
+      font-size: 1.2em;
+      color: var(--main-green);
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      color: #555;
+      text-align: center;
+      padding: 0 16px 16px;
+    }
+
+    footer {
+      background-color: var(--main-green);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      margin-top: 60px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 768px) {
+      .banner {
+        font-size: 1.8em;
+        height: 250px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      nav {
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      nav a {
+        margin: 8px 0;
+        font-size: 1em;
+        padding: 6px 12px;
+      }
+
+      .content {
+        padding: 40px 15px 30px;
+      }
+
+      .category-title {
+        font-size: 1.7em;
+      }
+
+      .category-description {
+        font-size: 1em;
+        margin-bottom: 30px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .card img {
+        height: 150px;
+      }
+
+      .card h3 {
+        font-size: 1.1em;
+      }
+
+      .card p {
+        font-size: 0.9em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .banner {
+        font-size: 1.4em;
+        height: 200px;
+      }
+
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card img {
+        height: 120px;
+      }
+
+      .card h3 {
+        font-size: 1em;
+      }
+
+      .card p {
+        font-size: 0.85em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>志光街菜攤</h1>
+  </header>
+
+  <nav>
+    <a href="蔬菜.html">蔬菜類</a>
+    <a href="水果.html">水果類</a>
+    <a href="冷藏食品.html">冷藏食品</a>
+    <a href="常溫食品.html">常溫食品</a>
+    <a href="醬料、調味料.html">醬料、調味料</a>
+    <a href="泡麵與其他麵類.html">泡麵與其他麵類</a>
+  </nav>
+
+  <div class="banner">
+    新鮮直送．安心蔬菜
+  </div>
+
+  <div class="content" id="leafy">
+    <div class="category-title">商品一覽</div>
+    <div class="category-description">
+      精選新鮮葉菜，為您的健康加分，無論是清爽沙拉還是美味湯品，都是最佳選擇！
+    </div>
+
+    <div class="product-grid">
+      <div class="card"><img src="1-1.jpg" alt="蔬菜"><h3>蔬菜</h3><p>蔬菜富含各種營養素，口感清脆，對人體健康有很好的幫助，尤其富含維生素A與膳食纖維，對眼睛健康和消化系統有益。</p></div>
+      <div class="card"><img src="2-1.jpg" alt="水果"><h3>水果</h3><p>水果提供豐富的維生素C和水分，有助於保持身體水分平衡並清爽解熱。適合生食，並能增強免疫力。</p></div>
+      <div class="card"><img src="3-1.jpg" alt="冷藏食品"><h3>冷藏食品</h3><p>冷藏食品通常富含抗氧化成分，如茄紅素等，有助於減緩老化，維持皮膚健康。常見的冷藏食品包括各類蔬果和肉類。</p></div>
+      <div class="card"><img src="4-1.jpg" alt="常溫食品"><h3>常溫食品</h3><p>常溫食品不需冷藏即可保存，如乾貨、罐頭和各種乾燥食品。它們提供豐富的營養並能長期儲存，是家庭必備的食品選擇。</p></div>
+      <div class="card"><img src="5-1.jpg" alt="醬料、調味料"><h3>醬料、調味料</h3><p>醬料和調味料能增添食物的風味，並提供多種營養成分，如維生素、礦物質等。適合用於各類菜餚中，提升口感與營養價值。</p></div>
+      <div class="card"><img src="6-1.jpg" alt="泡麵與其他麵類"><h3>泡麵與其他麵類</h3><p>泡麵與麵類食品為現代快速便捷的選擇，富含碳水化合物與必需的營養成分，能夠快速補充能量，並且美味可口。</p></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 志光街菜攤 | 所有權利保留</p>
+  </footer>
+
+</body>
+</html>
