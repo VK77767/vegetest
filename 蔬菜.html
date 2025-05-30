@@ -10,6 +10,7 @@
       font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
       background: linear-gradient(to right, #e8f5e9, #f1f8e9);
       color: #333;
+
     }
 
     h1 {
@@ -99,6 +100,7 @@
       transform: translateY(-2px);
     }
 
+    /* 調整容器布局 */
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -142,6 +144,7 @@
       text-align: center;
     }
 
+    /* 調整小螢幕上顯示兩列 */
     @media (max-width: 768px) {
       .layout {
         flex-direction: column;
@@ -154,8 +157,9 @@
         margin-bottom: 20px;
       }
 
+      /* 在這裡修改為每行顯示兩列 */
       .container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 顯示兩列 */
         gap: 20px;
       }
 
@@ -177,6 +181,7 @@
       }
     }
 
+    /* 調整極小螢幕（如手機）顯示 */
     @media (max-width: 480px) {
       .card img {
         height: 140px;

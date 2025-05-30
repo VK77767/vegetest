@@ -5,39 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>新鮮水果商品介紹</title>
   <style>
+  
     body {
       margin: 0;
       font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
       background: linear-gradient(to right, #f3e5f5, #ffebee); /* 淡紫色到淡粉色的漸層背景 */
       color: #333;
+	  overflow-x: hidden; 
     }
 
     h1 {
       text-align: center;
       font-size: 2.5em;
-      color: #e57373; /* 柔和的紅色，讓標題不那麼鮮豔 */
-      margin: 20px 0 20px 20px; /* 增加左邊距離，使標題靠左 */
+      color: #e57373; /* 柔和的紅色 */
+      margin: 20px 0;
       text-shadow: 1px 1px 2px #f48fb1; /* 淡粉色陰影 */
     }
 
     .layout {
       display: flex;
-      flex-wrap: wrap; /* 允許元素換行 */
       padding: 0 20px 40px;
-      gap: 20px;
+      gap: 30px;
+      flex-wrap: wrap; /* 使元素可以換行 */
     }
 
     .sidebar {
-      width: 100%;
+      width: 200px;
+      min-width: 160px;
       background-color: #ffffffc2;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      height: fit-content;
+      margin-bottom: 20px;
     }
 
     .sidebar h2 {
       font-size: 1.2em;
-      color: #e57373; /* 柔和的紅色 */
+      color: #e57373;
       margin-bottom: 15px;
     }
 
@@ -53,7 +58,7 @@
 
     .sidebar a {
       text-decoration: none;
-      color: #66bb6a; /* 淡綠色，代表健康 */
+      color: #66bb6a;
       font-weight: 500;
       display: block;
       padding: 8px 12px;
@@ -62,7 +67,7 @@
     }
 
     .sidebar a:hover {
-      background-color: #ffe0b2; /* 淡橙色的懸停效果 */
+      background-color: #ffe0b2;
     }
 
     .product-area {
@@ -70,7 +75,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
     }
 
     .back-button {
@@ -80,7 +84,7 @@
 
     .back-button a {
       display: inline-block;
-      background: linear-gradient(to right, #ffab91, #ff8a65); /* 淡橙色到柔和紅色的漸層 */
+      background: linear-gradient(to right, #ffab91, #ff8a65);
       color: #fff;
       text-decoration: none;
       padding: 10px 24px;
@@ -92,17 +96,19 @@
     }
 
     .back-button a:hover {
-      background: linear-gradient(to right, #ff8a65, #f44336); /* 更柔和的懸停效果 */
+      background: linear-gradient(to right, #ff8a65, #f44336);
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
       transform: translateY(-2px);
     }
 
+    /* Set two-column layout for larger screens */
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 24px;
       width: 100%;
       max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
@@ -122,12 +128,12 @@
       width: 100%;
       height: 180px;
       object-fit: cover;
-      background-color: #ffccbc; /* 淡橙色背景，柔和且與水果顏色呼應 */
+      background-color: #ffccbc;
     }
 
     .card h3 {
       margin: 16px 0 8px;
-      color: #e57373; /* 柔和的紅色字體 */
+      color: #e57373;
       font-size: 1.2em;
       text-align: center;
     }
@@ -140,61 +146,60 @@
       text-align: center;
     }
 
+    /* 手機版調整 */
     @media (max-width: 768px) {
       .layout {
-        flex-direction: column;
-        align-items: center; /* 垂直排列並居中 */
+        flex-direction: column;  /* 垂直排列 */
+        align-items: center;
         padding: 10px;
       }
 
       .sidebar {
         width: 100%;
-        margin-bottom: 20px; /* 增加間距 */
+        margin-bottom: 20px;
       }
 
+      /* 修改此處為2列顯示 */
       .container {
-        grid-template-columns: 1fr 1fr; /* 在中等大小設備上顯示為兩列 */
+        grid-template-columns: repeat(2, 1fr); /* 兩列顯示 */
         gap: 20px;
       }
 
       .card img {
-        height: 150px; /* 調整圖片高度 */
+        height: 160px;
       }
 
       .card h3 {
-        font-size: 1.1em; /* 縮小標題字體 */
+        font-size: 1.1em;
       }
 
       .card p {
-        font-size: 13px; /* 縮小描述文字 */
+        font-size: 13px;
       }
 
       .back-button a {
         font-size: 0.9em;
-        padding: 8px 20px; /* 調整按鈕大小 */
+        padding: 8px 20px;
       }
     }
 
+    /* 小螢幕調整 */
     @media (max-width: 480px) {
-      .container {
-        grid-template-columns: 1fr; /* 在手機上顯示為單列 */
-      }
-
       .card img {
-        height: 120px; /* 調整圖片高度 */
-      }
-
-      .card h3 {
-        font-size: 1em; /* 進一步縮小標題字體 */
-      }
-
-      .card p {
-        font-size: 12px; /* 進一步縮小描述文字 */
+        height: 140px;
       }
 
       .back-button a {
         font-size: 0.85em;
-        padding: 6px 18px; /* 縮小按鈕大小 */
+        padding: 6px 18px;
+      }
+
+      .card h3 {
+        font-size: 1em;
+      }
+
+      .card p {
+        font-size: 12px;
       }
     }
   </style>

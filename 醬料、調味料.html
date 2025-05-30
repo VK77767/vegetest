@@ -1,207 +1,209 @@
-<style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
-    background: linear-gradient(to right, #f5f5f5, #e0e0e0); /* 淺灰色背景，避免過於沉重 */
-    color: #3e2723; /* 深咖啡色文字 */
-  }
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商品介紹</title>
+  <style>
+  
+   body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+  background: linear-gradient(to right, #f5f5f5, #e0e0e0); /* 淺灰色背景，避免過於沉重 */
+  color: #3e2723; /* 深咖啡色文字 */
+  overflow-x: hidden;  /* 禁止橫向滾動 */
+}
 
-  h1 {
-    text-align: center;
-    font-size: 2.5em;
-    color: #3e2723; /* 深咖啡色 */
-    margin: 20px 0 20px 270px;
-    text-shadow: 1px 1px 2px #6d4c41; /* 較淺的咖啡色陰影 */
-  }
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #3e2723; /* 深咖啡色 */
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px #6d4c41; /* 較淺的咖啡色陰影 */
+}
 
+.layout {
+  display: flex;
+  padding: 0 20px 40px;
+  gap: 30px;
+  flex-wrap: wrap; /* 使元素可以換行 */
+}
+
+.sidebar {
+  width: 200px;
+  min-width: 160px;
+  background-color: #6d4c41; /* 咖啡色背景 */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  margin-bottom: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.2em;
+  color: #fff; /* 白色文字 */
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff; /* 白色文字 */
+  font-weight: 500;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #3e2723; /* 深咖啡色懸停背景 */
+}
+
+.product-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back-button {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.back-button a {
+  display: inline-block;
+  background: linear-gradient(to right, #6d4c41, #3e2723); /* 咖啡色到深咖啡色的漸層背景 */
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.back-button a:hover {
+  background: linear-gradient(to right, #3e2723, #6d4c41); /* 深咖啡色到咖啡色的懸停效果 */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 調整容器布局 */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background-color: #fff; /* 白色背景 */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: #3e2723; /* 咖啡色背景 */
+}
+
+.card h3 {
+  margin: 16px 0 8px;
+  color: #3e2723; /* 深咖啡色 */
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.card p {
+  font-size: 14px;
+  color: #3e2723; /* 深咖啡色文字 */
+  padding: 0 10px 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* 調整小螢幕上顯示兩列 */
+@media (max-width: 768px) {
   .layout {
-    display: flex;
-    padding: 0 20px 40px;
-    gap: 30px;
-    flex-wrap: wrap; /* 讓項目可以換行，適應較小螢幕 */
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
   }
 
   .sidebar {
-    width: 200px;
-    min-width: 160px;
-    background-color: #6d4c41; /* 咖啡色背景 */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    height: fit-content;
+    width: 100%;
     margin-bottom: 20px;
   }
 
-  .sidebar h2 {
-    font-size: 1.2em;
-    color: #fff; /* 白色文字 */
-    margin-bottom: 15px;
-  }
-
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .sidebar li {
-    margin: 10px 0;
-  }
-
-  .sidebar a {
-    text-decoration: none;
-    color: #fff; /* 白色文字 */
-    font-weight: 500;
-    display: block;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: background 0.3s;
-  }
-
-  .sidebar a:hover {
-    background-color: #3e2723; /* 深咖啡色懸停背景 */
-  }
-
-  .product-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* 確保產品區域最大化寬度 */
-  }
-
-  .back-button {
-    text-align: center;
-    margin: 20px 0;
-  }
-
-  .back-button a {
-    display: inline-block;
-    background: linear-gradient(to right, #6d4c41, #3e2723); /* 咖啡色到深咖啡色的漸層 */
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 24px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .back-button a:hover {
-    background: linear-gradient(to right, #3e2723, #6d4c41); /* 深咖啡色到咖啡色的懸停效果 */
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-  }
-
+  /* 在這裡修改為每行顯示兩列 */
   .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 24px;
-    width: 100%;
-    max-width: 1200px;
-  }
-
-  .card {
-    background-color: #fff; /* 白色背景保持卡片清爽 */
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    grid-template-columns: repeat(2, 1fr); /* 顯示兩列 */
+    gap: 20px;
   }
 
   .card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    background-color: #3e2723; /* 咖啡色背景 */
+    height: 160px;
   }
 
   .card h3 {
-    margin: 16px 0 8px;
-    color: #3e2723; /* 深咖啡色 */
-    font-size: 1.2em;
-    text-align: center;
+    font-size: 1em;
   }
 
   .card p {
-    font-size: 14px;
-    color: #3e2723; /* 深咖啡色文字 */
-    padding: 0 10px 16px;
-    line-height: 1.5;
-    text-align: center;
+    font-size: 13px;
   }
 
-  /* 手機屏幕適配 */
-  @media (max-width: 768px) {
-    .layout {
-      flex-direction: column;
-      align-items: center;
-    }
+  .back-button a {
+    font-size: 0.9em;
+    padding: 8px 20px;
+  }
+}
 
-    .sidebar {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .product-area {
-      width: 100%;
-      padding: 0 20px;
-    }
-
-    .container {
-      grid-template-columns: 1fr 1fr; /* 手機端上兩列佈局 */
-      gap: 16px;
-    }
-
-    .card img {
-      height: 150px; /* 改小圖片高度 */
-    }
-
-    .card h3 {
-      font-size: 1.1em; /* 調整標題大小 */
-    }
-
-    .card p {
-      font-size: 13px; /* 調整文字大小 */
-    }
-
-    .back-button a {
-      font-size: 0.9em;
-      padding: 8px 20px; /* 減小按鈕大小 */
-    }
+/* 調整極小螢幕（如手機）顯示 */
+@media (max-width: 480px) {
+  .card img {
+    height: 140px;
   }
 
-  /* 超小屏幕適配 */
-  @media (max-width: 480px) {
-    .container {
-      grid-template-columns: 1fr; /* 超小螢幕上為單列布局 */
-    }
-
-    .card img {
-      height: 120px; /* 改小圖片高度 */
-    }
-
-    .card h3 {
-      font-size: 1em; /* 調整標題大小 */
-    }
-
-    .card p {
-      font-size: 12px; /* 調整文字大小 */
-    }
-
-    .back-button a {
-      font-size: 0.85em;
-      padding: 6px 18px; /* 減小按鈕大小 */
-    }
+  .back-button a {
+    font-size: 0.85em;
+    padding: 6px 18px;
   }
-</style>
-<h1>常溫商品介紹</h1>
+
+  .card h3 {
+    font-size: 0.95em;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+}
+
+  </style>
+<h1>醬料、調味料介紹</h1>
 
 <div class="layout">
   <!-- 左側分類選單 -->
@@ -243,9 +245,9 @@
         <p>酸子糕有獨特的酸味和糯米口感，常用於佐餐或作為小吃，帶來與眾不同的味覺享受。</p>
       </div>
       <div class="card">
-        <img src="5-4.jpg" alt="栗米粉">
-        <h3>栗米粉</h3>
-        <p>栗米粉是由玉米製成，具有細膩的口感，常用於製作糕點或為湯品增添粘稠度。</p>
+        <img src="5-4.jpg" alt="粟米粉">
+        <h3>粟米粉</h3>
+        <p>粟米粉是由玉米製成，具有細膩的口感，常用於製作糕點或為湯品增添粘稠度。</p>
       </div>
       <div class="card">
         <img src="5-5.jpg" alt="蝦鹽">
